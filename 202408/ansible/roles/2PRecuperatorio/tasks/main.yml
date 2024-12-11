@@ -1,0 +1,18 @@
+---
+# tasks file for 2PRecuperatorio
+
+- name: Crear directorio para el archivo
+  file:
+    path: /tmp/alumno
+    state: directory
+
+- name: Crear archivo con los datos requeridos
+  copy:
+    dest: /tmp/alumno/datos.txt
+    content: |
+      Nombre: {{ nombre }}  Apellido: {{ apellido }}
+      División: {{ division }}
+      Fecha: {{ fecha }}
+      -------------------------
+      Distribución: {{ distro }}
+      Cantidad de Cores: {{ cores }}

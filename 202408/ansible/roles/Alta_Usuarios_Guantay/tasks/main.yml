@@ -1,0 +1,24 @@
+---
+# tasks file for Alta_Usuarios_Guantay
+
+- name: Crear grupo GProfesores
+  group:
+    name: GProfesores
+    state: present
+
+- name: Crear grupo GAlumnos
+  group:
+    name: GAlumnos
+    state: present
+
+- name: Crear usuario Profesor y agregarlo al grupo GProfesores
+  user:
+    name: Profesor
+    groups: GProfesores
+    state: present
+
+- name: Crear usuario Alumno y agregarlo al grupo GAlumnos
+  user:
+    name: Alumno
+    groups: GAlumnos
+    state: present

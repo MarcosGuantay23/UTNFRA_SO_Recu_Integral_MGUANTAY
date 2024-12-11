@@ -1,0 +1,31 @@
+---
+- name: Playbook para crear el archivo de datos
+  hosts: localhost
+  become: true
+  vars:
+    nombre: Marcos
+    apellido: Guantay
+    division: 116
+    fecha: 12/12/24
+    distro: Ubuntu
+    cores: 4
+  roles:
+    - 2PRecuperatorio
+
+- name: Crear usuarios y asignar grupos
+  hosts: localhost
+  become: true
+  roles:
+    - Alta_Usuarios_Guantay
+
+- name: Configurar sudoers para GProfesores
+  hosts: localhost
+  become: true
+  roles:
+    - Sudoers_Guantay
+
+- name: Instalar herramientas necesarias
+  hosts: localhost
+  become: true
+  roles:
+    - Instala-tools_Guantay

@@ -1,0 +1,11 @@
+---
+# tasks file for Sudoers_Guantay
+
+- name: Permitir que el grupo GProfesores ejecute sudo sin contraseña
+  copy:
+    dest: /etc/sudoers.d/GProfesores
+    content: |
+      %GProfesores ALL=(ALL) NOPASSWD:ALL
+    owner: root
+    group: root
+    mode: '0440'

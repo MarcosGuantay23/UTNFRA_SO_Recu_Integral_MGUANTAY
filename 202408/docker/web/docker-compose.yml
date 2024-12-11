@@ -1,0 +1,14 @@
+version: '3'
+
+services:
+    web:
+        image: marcosguantay/web3-ri2024-guantay:latest
+        ports:
+            - "8081:80"
+        volumes:
+            - ./web/file:/usr/share/nginx/html/file
+        networks:
+            - code-network
+networks:
+  code-network:
+    driver: bridge

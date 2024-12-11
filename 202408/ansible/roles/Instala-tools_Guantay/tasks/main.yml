@@ -1,0 +1,16 @@
+---
+# tasks file for Instala-tools_Guantay
+
+- name: Actualizar el índice de paquetes
+  ansible.builtin.apt:
+    update_cache: yes
+  when: ansible_os_family == "Debian"
+
+- name: Instalar paquetes requeridos
+  ansible.builtin.package:
+    name:
+      - htop
+      - tmux
+      - tree
+      - speedtest-cli
+    state: present
